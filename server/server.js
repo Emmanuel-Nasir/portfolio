@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 require('dotenv').config();
 
 const app = express();
+app.set('trust proxy', 1);
    const contactRouter = require('./routes/contact');
    const experiencesRouter = require('./routes/experience');
    const certificationsRouter = require('./routes/certification');
