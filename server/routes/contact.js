@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const nodemailer = require('nodemailer');
+const dns = require('dns');
+dns.setDefaultResultOrder('ipv4first');
 
 router.post('/', async (req, res) => {
     const { name, email, message } = req.body;
