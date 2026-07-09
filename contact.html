@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact — Emmanuel Nasir</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+     <div id="nav-placeholder"></div>
+
+
+  <section id="contact">
+    <div class="container">
+
+      <h2 class="page-title" data-aos="fade-up">Get In Touch</h2>
+      <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">
+        Have a project in mind or want to connect? Send me a message.
+      </p>
+
+      <div class="contact-grid" data-aos="fade-up" data-aos-delay="150">
+
+        <!-- LEFT: Contact Info -->
+        <div class="contact-info">
+          <h3>Contact Details</h3>
+
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <a href="mailto:emmanuel.nasi@gmail.com">
+              emmanuel.nasi@gmail.com
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">GitHub</span>
+            <a href="https://github.com/Emmanuel-Nasir" target="_blank">
+              github
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">LinkedIn</span>
+            <a href="https://www.linkedin.com/in/emmanuel-nasir/" target="_blank">
+              linkedin
+            </a>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-label">Location</span>
+            <span>Nigeria · Open to Remote</span>
+          </div>
+
+        </div>
+
+        <!-- RIGHT: Contact Form -->
+        <div class="contact-form-wrap">
+          <form id="contact-form">
+
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input 
+                type="text" 
+                id="name" 
+                placeholder="Your full name" 
+                required 
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input 
+                type="email" 
+                id="email" 
+                placeholder="your@email.com" 
+                required 
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea 
+                id="message" 
+                rows="5" 
+                placeholder="Tell me about your project or just say hi..." 
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              Send Message
+            </button>
+
+            <p class="form-status" id="form-status"></p>
+
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>Built by <strong>Emmanuel Nasir</strong> · 2026</p>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="js/contact.js"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>

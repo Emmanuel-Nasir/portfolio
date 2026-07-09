@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin - Emmanuel Nasir</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <section id="admin">
+    <div class="container">
+
+        <div class="admin-header">
+            <h2 class="page-title">⚙ Admin Panel</h2>
+            <a href="index.html" class="back-link">← Back to Portfolio</a>
+        </div>
+
+        <div class="admin-tabs">
+            <button class="admin-tab active" data-tab="projects">Projects</button>
+            <button class="admin-tab" data-tab="certifications">Certifications</button>
+            <button class="admin-tab" data-tab="experience">Experience</button>
+        </div>
+
+        <!-- ================= PROJECTS PANEL ================= -->
+        <div class="admin-panel" id="panel-projects">
+            <div class="admin-form">
+                <h3>Add Project</h3>
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="proj-title" placeholder="Project title" />
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea id="proj-desc" placeholder="What does this project do?"></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Category</label>
+                    <select id="proj-category">
+                        <option value="software">Software</option>
+                        <option value="networking">Networking</option>
+                        <option value="security">Cybersecurity</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tags (comma separated)</label>
+                    <input type="text" id="proj-tags" placeholder="Node.js, MongoDB, REST API" />
+                </div>
+                <div class="form-group">
+                    <label>GitHub URL</label>
+                    <input type="text" id="proj-github" placeholder="https://github.com/..." />
+                </div>
+                <div class="form-group">
+                    <label>Live URL (optional)</label>
+                    <input type="text" id="proj-live" placeholder="https://..." />
+                </div>
+                <button class="btn btn-primary" onclick="addProject()">Add Project</button>
+                <p id="proj-status"></p>
+            </div>
+            <h3 style="margin-top: 2rem">Existing Projects</h3>
+            <div id="projects-list"></div>
+        </div>
+
+        <!-- ================= CERTIFICATIONS PANEL ================= -->
+        <div class="admin-panel" id="panel-certifications" style="display:none">
+            <div class="admin-form">
+                <h3>Add Certification</h3>
+                <div class="form-group">
+                    <label>Certification Name</label>
+                    <input type="text" id="cert-title" placeholder="e.g. CompTIA Security+" />
+                </div>
+                <div class="form-group">
+                    <label>Issuing Organisation</label>
+                    <input type="text" id="cert-issuer" placeholder="e.g. CompTIA" />
+                </div>
+                <div class="form-group">
+                    <label>Date Earned</label>
+                    <input type="date" id="cert-date" />
+                </div>
+                <div class="form-group">
+                    <label>Credential URL (optional)</label>
+                    <input type="text" id="cert-url" placeholder="https://..." />
+                </div>
+                <button class="btn btn-primary" onclick="addCertification()">Add Certification</button>
+                <p id="cert-status"></p>
+            </div>
+            <h3 style="margin-top: 2rem">Existing Certifications</h3>
+            <div id="certifications-list"></div>
+        </div>
+
+        <!-- ================= EXPERIENCE PANEL ================= -->
+        <div class="admin-panel" id="panel-experience" style="display:none">
+            <div class="admin-form">
+                <h3>Add Experience</h3>
+                <div class="form-group">
+                    <label>Job Title / Role</label>
+                    <input type="text" id="exp-title" placeholder="e.g. IT Specialist" />
+                </div>
+                <div class="form-group">
+                    <label>Company</label>
+                    <input type="text" id="exp-company" placeholder="e.g. Jaroy Investment Limited" />
+                </div>
+                <div class="form-group">
+                    <label>Period</label>
+                    <input type="text" id="exp-period" placeholder="e.g. June 2020 – March 2022" />
+                </div>
+                <div class="form-group">
+                    <label>Key Responsibilities (one per line)</label>
+                    <textarea id="exp-responsibilities" placeholder="Diagnosed and resolved hardware issues&#10;Maintained network infrastructure"></textarea>
+                </div>
+                <button class="btn btn-primary" onclick="addExperience()">Add Experience</button>
+                <p id="exp-status"></p>
+            </div>
+            <h3 style="margin-top: 2rem">Existing Experience</h3>
+            <div id="experience-list"></div>
+        </div>
+
+    </div>
+    </section>
+
+    <footer>
+        <p> Built by <strong>Emmanuel Nasir</strong> . 2026</p>
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
