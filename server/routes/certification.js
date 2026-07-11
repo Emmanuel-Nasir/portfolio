@@ -2,6 +2,14 @@ const requireAuth = require('../middleware/requireAuth');
 const express = require('express');
 const router = express.Router();
 const certification = require('../models/certification');
+const { body, validationResult } = require('express-validator');
+
+const certificationValidation = [
+    body('title').trim().isLength({ min: 1, max: 150 }).escape(),
+    body('issuer').trim().isLength({ min: 1, max: 150 }).escape(),
+    body('dateEarned').optional({ checkFalsy: true }).isISO8601(),
+    body('credentialUrl').optional({ checkFalsy: true }).isURL(),
+];
 
 // GET all certifications
 router.get('/', async (req, res) => {
@@ -14,7 +22,12 @@ router.get('/', async (req, res) => {
 });
 
 // POST a new certification
-router.post('/', requireAuth, async (req, res) => {
+router.post('/', requireAuth, certificationValidation, async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ error: 'Invalid certification data' });
+    }
+
     try {
         const newCertification = new certification(req.body);
         await newCertification.save();

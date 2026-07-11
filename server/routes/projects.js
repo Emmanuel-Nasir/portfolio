@@ -2,6 +2,13 @@ const requireAuth = require('../middleware/requireAuth');
 const express = require('express');
 const router = express.Router();
 const Project = require('../models/Project');
+const { body, validationResult } = require('express-validator');
+
+const projectValidation = [
+    body('title').trim().isLength({ min: 1, max: 150 }).escape(),
+    body('description').trim().isLength({ min: 1, max: 1000 }).escape(),
+    body('category').trim().isIn(['software', 'networking', 'security']),
+];
 
 // GET all projects
 router.get('/', async (req, res) => {
@@ -14,7 +21,12 @@ router.get('/', async (req, res) => {
 });
 
 // POST a new project
-router.post('/',  requireAuth, async (req, res) => {
+router.post('/', requireAuth, projectValidation, async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        return res.status(400).json({ error: 'Invalid project data' });
+    }
+
     try {
         const project = new Project(req.body);
         await project.save();
