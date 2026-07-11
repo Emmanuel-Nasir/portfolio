@@ -8,7 +8,7 @@ let allProjects = [];
 
 async function loadProjects(filter) {
     try {
-        const res = await fetch('/api/projects');
+        const res = await  fetch('https://emmanuel-portfolio-lted.onrender.com/api/projects');
         allProjects = await res.json();
         renderProjects(filter);
     } catch (err) {

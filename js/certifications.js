@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function loadCertifications() {
     try {
-        const res = await fetch('/api/certifications');
+        const res = await  fetch('https://emmanuel-portfolio-lted.onrender.com/api/certifications');
         const certifications = await res.json();
         renderCertifications(certifications);
     } catch (err) {

@@ -1,5 +1,4 @@
-const API_BASE = '/api';
-
+const API_BASE = 'https://emmanuel-portfolio-lted.onrender.com/api';
 async function checkAuth() {
     const token = localStorage.getItem('adminToken');
     if (!token) {

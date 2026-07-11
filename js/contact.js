@@ -11,8 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
             };
 
             try {
-                const response = await fetch('/api/contact', {
-                    method: 'POST',
+const response = await fetch('https://emmanuel-portfolio-lted.onrender.com/api/contact', {                    method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                     },

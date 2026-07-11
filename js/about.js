@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function loadExperience() {
     try {
-        const res = await fetch('/api/experiences');
+        const res = await  fetch('https://emmanuel-portfolio-lted.onrender.com/api/experiences');
         const experiences = await res.json();
         renderExperience(experiences);
     } catch (err) {
