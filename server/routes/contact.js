@@ -1,10 +1,17 @@
 const express = require('express');
 const router = express.Router();
 const { Resend } = require('resend');
+const rateLimit = require('express-rate-limit');
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-router.post('/', async (req, res) => {
+const contactLimiter = rateLimit({
+    windowMs: 60 * 60 * 1000, // 1 hour
+    max: 5, // limit each IP to 5 submissions per hour
+    message: { error: 'Too many messages sent. Please try again later.' },
+});
+
+router.post('/', contactLimiter, async (req, res) => {
     const { name, email, message } = req.body;
 
     if (!name || !email || !message) {
