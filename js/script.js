@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
 // load nav
 fetch('nav.html')
@@ -84,10 +83,12 @@ animate();
 function initNav() {
 //  NAVIGATION PANEL 
 // set active link based on current page
-const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-// console.log('Current page:', currentPage);
+let currentPath = window.location.pathname.replace(/\.html$/, '').replace(/^\//, '');
+if (currentPath === 'index') currentPath = '';
+
 document.querySelectorAll('.nav-links a').forEach(link => {
-    if (link.getAttribute('href') === currentPage) {
+    const linkPath = link.getAttribute('href').replace(/^\//, '');
+    if (linkPath === currentPath) {
         link.classList.add('active');
     }
 });

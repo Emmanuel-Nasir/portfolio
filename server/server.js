@@ -12,11 +12,13 @@ app.set('trust proxy', 1);
    const authRouter = require('./routes/auth');
 
 
+const path = require('path');
+
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, '..'), { extensions: ['html'] }));
 
-const path = require('path');
-app.use(express.static(path.join(__dirname, '..')));
+
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
